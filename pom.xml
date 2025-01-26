@@ -147,7 +147,7 @@
           <manifest>
             <addClasspath>true</addClasspath>
             <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>com.DiagramToDb.LMDToDB.LmdDToDbApplication</mainClass>
+            <mainClass>com.DiagramToDb.LMDToDB.LmdToDbApplication</mainClass>
           </manifest>
         </archive>
       </configuration>
