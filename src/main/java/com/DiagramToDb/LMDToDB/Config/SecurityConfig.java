@@ -58,7 +58,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://ertodb-frontend-w5eg-26ppisoe7-s1njus-projects.vercel.app")); // Allow specific origin
+        configuration.setAllowedOrigins(List.of("https://ertodb-frontend-w5eg.vercel.app")); // Allow specific origin
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Allow HTTP methods
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type","")); // Allow headers
         configuration.setAllowCredentials(true); // Allow credentials (cookies, etc.)
