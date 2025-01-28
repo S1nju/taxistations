@@ -29,7 +29,9 @@ public class UserService {
     private JwtService jwtService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder= new BCryptPasswordEncoder(10);
     public ResponseEntity<?> CreateUser(UserDto user){
-
+if(user.getUsername().isEmpty() || user.getPassword().isEmpty()|| user.getEmail().isEmpty()){
+    return ResponseEntity.ok("failed to create user");  
+}
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepo.save(UserEntity.toEntity(user));
         return ResponseEntity.ok(jwtService.generateToken(user.getUsername()));
