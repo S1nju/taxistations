@@ -31,6 +31,7 @@ public class TableEntity {
     private String pkey;
     @NotNull(message ="field is required")
     private String type;
+    @ElementCollection
     private   List<Relation> relationto = new ArrayList<>();
 
     @ManyToOne
