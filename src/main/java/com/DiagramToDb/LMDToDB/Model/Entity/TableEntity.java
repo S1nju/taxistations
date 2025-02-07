@@ -1,5 +1,6 @@
 package com.DiagramToDb.LMDToDB.Model.Entity;
 
+import com.DiagramToDb.LMDToDB.Model.Dto.Relation;
 import com.DiagramToDb.LMDToDB.Model.Dto.TableDto;
 import com.DiagramToDb.LMDToDB.Repo.TableRepo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,7 +31,7 @@ public class TableEntity {
     private String pkey;
     @NotNull(message ="field is required")
     private String type;
-    private   List<Integer> relationto = new ArrayList<>();
+    private   List<Relation> relationto = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn

@@ -19,7 +19,7 @@ public class TableDto {
     private String pkey;
     private String type;
     private List<ColumnDto> columns;
-    private  List<Integer> relationto = new ArrayList<>();
+    private  List<Relation> relationto = new ArrayList<>();
 
     public static TableDto toEntity(TableEntity Entity){
         List<ColumnDto> list= new ArrayList<>();
