@@ -30,14 +30,18 @@ public class UserEntity {
     @Column(unique = true)
     private String email;
     private String password;
+    private String type;
     private Collection<? extends GrantedAuthority> authorities= Collections.singleton(new SimpleGrantedAuthority("USER"));
     private boolean accountNonExpired=true;
     private boolean accountNonLocked=true;
     private boolean credentialsNonExpired=true;
     private  boolean enabled=true;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<DatabaseEntity> dbs= new ArrayList<>();
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "station_id", referencedColumnName = "id")
+    private StationEntity station;
+
     public static UserEntity toEntity(UserDto u){
         return UserEntity.builder()
                 .id(u.getId())

@@ -49,7 +49,21 @@ if(user.getUsername().isEmpty() || user.getPassword().isEmpty()|| user.getEmail(
     public String MakeAdmin(Long id){
         Optional<UserEntity> l =userRepo.findById(id);
         if(l.isPresent()){
-           l.get().setAuthorities(Collections.singleton(new  SimpleGrantedAuthority("ADMIN")));
+           l.get().setType("admin");
+            userRepo.save(l.get());
+            return "Success";
+        }else{
+            return "User Not Found";
+        }
+
+
+
+    }
+
+    public String Makesup(Long id){
+        Optional<UserEntity> l =userRepo.findById(id);
+        if(l.isPresent()){
+            l.get().setType("supervisor");
             userRepo.save(l.get());
             return "Success";
         }else{

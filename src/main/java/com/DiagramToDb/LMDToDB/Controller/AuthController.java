@@ -25,6 +25,14 @@ public class AuthController {
     public String Logout( @RequestHeader("Authorization") String token){
         return  userService.logout(token);
     }
+    @PostMapping("/admin/{id}")
+    public String admin(@PathVariable("id") Long id){
+        return  userService.MakeAdmin(id);
+    }
+    @PostMapping("/sup/{id}")
+    public String sup( @PathVariable("id") Long id){
+        return  userService.Makesup(id);
+    }
     @GetMapping("/user")
     public ResponseEntity<?> getuser(){
         return  userService.getcurrentuser();
